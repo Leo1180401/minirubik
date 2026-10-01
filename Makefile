@@ -1,12 +1,15 @@
 CC ?= cc
 CFLAGS ?= -O3 -std=c99 -Wall -Wextra -Wpedantic
 FRAMA_C ?= frama-c
+
 CLANG_FORMAT := $(shell command -v clang-format-20 2>/dev/null || \
 	command -v clang-format 2>/dev/null)
+
 C_SOURCES := $(wildcard *.c *.h)
 SAMPLE_STATE := 21345671111111
 SAMPLE_SOLUTION := B' R' D2 R' B R B' R D2 B R'
 VECTORS := tests/solutions.txt
+
 # One per rejection path: short, long, cubie digit low, cubie digit high,
 # orientation digit low, orientation digit high, non-digit, duplicate, parity.
 INVALID_STATES := 1234567111111 123456711111111 02345671111111 82345671111111 \
@@ -14,12 +17,15 @@ INVALID_STATES := 1234567111111 123456711111111 02345671111111 82345671111111 \
 
 .PHONY: all check prove clean indent
 
-all: solver mini
+all: solver mini solver_basic
 
 solver: solver.c
 	$(CC) $(CFLAGS) $< -o $@
 
 mini: mini.c
+	$(CC) $(CFLAGS) $< -o $@
+
+solver_basic: solver_basic.c
 	$(CC) $(CFLAGS) $< -o $@
 
 check: solver mini $(VECTORS)
@@ -94,4 +100,4 @@ endif
 	$(CLANG_FORMAT) -i $(C_SOURCES)
 
 clean:
-	$(RM) solver mini
+	$(RM) solver mini solver_basic solver.exe mini.exe solver_basic.exe
