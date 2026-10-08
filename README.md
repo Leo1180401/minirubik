@@ -44,7 +44,7 @@ The measurement version allows us to evaluate computational performance without 
 
 ## 2. Repository Structure
 The repository contains the C implementation, RISC-V Assembly implementation, validation tools, and test data.
-
+```
 minirubik/
 │
 ├── README.md
@@ -55,7 +55,7 @@ minirubik/
 │
 ├── solver_led_optimized.s
 ├── solver_bench_optimized.s
-
+```
 
 File Descriptions:
 |File|Description|
