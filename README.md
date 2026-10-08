@@ -70,7 +70,6 @@ File Descriptions:
 
 ## 3. C Solver-Build and Usage
 ### 3-1. Bulid Instruction
-3.2 Build Instructions
 
 Clone or download the repository.
 
@@ -150,7 +149,7 @@ The Assembly implementation is executed using the Ripes RISC-V simulator.
 
 Ripes provides an environment for observing instruction execution, processor registers, memory operations, and pipeline behavior.
 
-### 4.1 Requirements
+### 4-1. Requirements
 - Ripes Simulator
 - Compatible RV32 processor configuration
 - LED Matrix peripheral (for visualization)
@@ -171,7 +170,7 @@ LED Matrix Output:
 ![螢幕擷取畫面 2026-10-06 092650](https://hackmd.io/_uploads/HyMKRpZozg.png)
 
 
-### 4.4 Instruction Measurement
+### 4-3. Instruction Measurement
 To evaluate instruction-level performance, the measurement version is executed using Ripes CLI.
 
 Unlike the LED version, this configuration excludes visualization instructions from the measurement.
@@ -204,7 +203,7 @@ Measurements can also be performed using a compatible five-stage pipelined proce
 
 
 ## 5. Testing Results and Documentation
-### 5.1 Correctness Verification
+### 5-1. Correctness Verification
 The C solver was tested using multiple cube states, including solved states and states requiring different numbers of moves.
 |Test Case|Expected Steps|C Solver|
 |---|---|---|
@@ -247,7 +246,7 @@ The performance analysis focuses on:
 
 The H3 verification checks whether all 2,644 distance-11 states can be solved within the required instruction budget of 50,000,000 retired instructions per state, using the same measurement configuration.
 
-### 5.3 Detailed Technical Report
+### 5-3. Detailed Technical Report
 For a more detailed explanation of the algorithms, implementation, verification methods, and performance measurements, please refer to the technical report.
 
 Full Technical Report — [HackMD](https://hackmd.io/EIOnNnjDQBO7a03yDvGYLQ?both)
