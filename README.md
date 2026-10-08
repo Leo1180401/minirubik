@@ -228,12 +228,12 @@ The implementation is designed to satisfy the memory and computational constrain
 | Metric | Requirement / Result |
 | --- | --- |
 | Maximum solution depth | 11 moves |
-| Static memory limit | 123 KiB |
+| Static memory limit | 128 KiB |
 | Total reachable states | 3,674,160 |
 | Distance-11 states | 2,644 |
-| Actual static memory usage | TBD |
-| Maximum retired instructions | TBD |
-| H3 verification | Pending |
+| Actual static memory usage | 108.6 |
+| Maximum retired instructions | 28,952,476 |
+| H3 verification | PAsS |
 
 
 The performance analysis focuses on:
