@@ -36,8 +36,8 @@ Two configurations are provided:
 
 | Version | Description |
 | --- | --- |
-| LED Version | Executes the solver and visualizes cube states using the Ripes LED Matrix. |
-| Measurement Version | Executes the solver without LED rendering to measure retired instructions. |
+| LED Version `solver_led_optimized` | Executes the solver and visualizes cube states using the Ripes LED Matrix. |
+| Measurement Version `solver_bench_optimized`| Executes the solver without LED rendering to measure retired instructions. |
 
 The measurement version allows us to evaluate computational performance without the additional instruction overhead of visualization.
 
@@ -45,7 +45,7 @@ The measurement version allows us to evaluate computational performance without 
 ## 2. Repository Structure
 The repository contains the C implementation, RISC-V Assembly implementation, validation tools, and test data.
 ```
-minirubik/
+minirubik
 │
 ├── README.md
 ├── Makefile
@@ -166,9 +166,6 @@ To execute the solver in Ripes:
 5. Configure the required peripherals, ISA Simulator,.
 6. Execute the program.
 
-LED Matrix Output:
-![螢幕擷取畫面 2026-10-06 092650](https://hackmd.io/_uploads/HyMKRpZozg.png)
-
 
 ### 4-3. Instruction Measurement
 To evaluate instruction-level performance, the measurement version is executed using Ripes CLI.
@@ -231,7 +228,7 @@ The implementation is designed to satisfy the memory and computational constrain
 | Static memory limit | 128 KiB |
 | Total reachable states | 3,674,160 |
 | Distance-11 states | 2,644 |
-| Actual static memory usage | 108.6 |
+| Actual static memory usage | 108.6 KiB |
 | Maximum retired instructions | 28,952,476 |
 | H3 verification | PAsS |
 
@@ -247,20 +244,10 @@ The performance analysis focuses on:
 The H3 verification checks whether all 2,644 distance-11 states can be solved within the required instruction budget of 50,000,000 retired instructions per state, using the same measurement configuration.
 
 ### 5-3. Detailed Technical Report
-For a more detailed explanation of the algorithms, implementation, verification methods, and performance measurements, please refer to the technical report.
+For more detailed explanation of the algorithms, implementation, verification methods, and performance measurements, please refer to the technical report.
 
 Full Technical Report — [HackMD](https://hackmd.io/EIOnNnjDQBO7a03yDvGYLQ?both)
 
-The report includes:
-
-Cube representation and move operations.
-BFS, DFS, and iterative deepening search.
-- C and RISC-V implementation details.
-- Static memory analysis.
-- H1~H4 validation.
-- Ripes instruction-level analysis.
-- LED Matrix implementation.
-- Performance evaluation and optimization.
 
 
 
